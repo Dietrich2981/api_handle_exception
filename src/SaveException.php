@@ -18,7 +18,7 @@ class SaveException
     public function save(Exception $exception){
         if(Request::wantsJson()){
             ApiLogException::create([
-                'user_id' => Auth::id(),
+                'user_id' => Auth::user() ? Auth::user()->id : null,
                 'code_error' => $exception->getCode(),
                 'file' => $exception->getFile(),
                 'line' => $exception->getLine(),

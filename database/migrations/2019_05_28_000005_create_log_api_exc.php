@@ -16,7 +16,7 @@ class CreateLogApiExc extends Migration
         Schema::create('api_log_exceptions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable()->default(null);
             $table->text('error');
             $table->integer('code_error');
             $table->integer('line');
